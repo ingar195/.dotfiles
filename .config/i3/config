@@ -8,10 +8,10 @@ exec autorandr --change
 exec numlockx on
 
 
-workspace 1 output DP-2-2
+workspace 1 output DP-2
 #workspace 2 output HDMI2
 workspace 3 output eDP-1
-
+workspace 4 output DP-2
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
