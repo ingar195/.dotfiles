@@ -74,7 +74,7 @@ bindsym $mod+F3 exec spotify --force-device-scale-factor=2
 
 bindsym --release Print exec scrot -s ~/Pictures/Screenshot/%F_%T.png -e 'xclip -selection clipboard -target image/png -i $f'
 #bindsym --release $mod+Shift+s exec scrot -s ~/Pictures/Screenshot/%F_%T.png -e 'xclip -selection clipboard -target image/png -i $f'
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+bindsym $mod+Shift+s --release exec --no-startup-id flameshot gui
 
 # change focus
 bindsym $mod+Left focus left
