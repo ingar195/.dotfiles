@@ -189,9 +189,9 @@ interval = 1000
 ping-interval = 30
 
 format-connected = <label-connected>
-label-connected = %local_ip% 
+label-connected = 󰤯 %local_ip%  %downspeed%  %upspeed%
 ; label-connected = %local_ip%     %downspeed%   祝 %upspeed%
-label-disconnected =   not connected
+label-disconnected = 󰤮 not connected
 label-disconnected-foreground = #66
 
 ramp-signal-0 = signal_wifi_0_bar
