@@ -183,7 +183,7 @@ ping-interval = 30
 
 format-connected = <label-connected>
 label-connected = %local_ip%  %downspeed%  %upspeed%
-label-disconnected = 󰤮 not connected
+label-disconnected = 󰤮
 
 ramp-signal-0 = 󰤯
 ramp-signal-1 = 󰤟
