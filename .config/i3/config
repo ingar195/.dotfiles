@@ -245,7 +245,7 @@ bindsym $mod+Shift+x exec --no-startup-id blurlock
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 
-exec --no-startup-id xautolock -time 5 -locker blurlock
+exec --no-startup-id xautolock -detectsleep  -time 5 -locker blurlock
 exec --no-startup-id  xinput set-prop 16 'libinput Accel Speed' 0.5 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:

@@ -23,16 +23,13 @@ separator = |
 font-0 = Helvetica:size=12
 font-1 = "Symbols Nerd Font:size=15"
 font-2 = "Tamsyn:size=10;4"
-;font-3 = FontAwesome5Brands:style=Regular:size=10;4
 
 modules-left = i3
 modules-right = cpu memory temperature wireless-network backlight consumation battery date
 
-;wm-restack = i3
 
 tray-position = right
 tray-scale = 1.0
-;tray-transparent = true
 tray-background = ${self.background}
 tray-maxsize = 64
 
@@ -48,7 +45,6 @@ underline-color = ${self.background}
 
 [module/backlight]
 type = internal/backlight
-;format = <label>
 format = <ramp> <label>
 
 card =  intel_backlight
@@ -61,13 +57,10 @@ ramp-2 = 
 bar-width = 10
 bar-indicator = |
 bar-indicator-font = 3
-bar-indicator-foreground = #ff
 bar-fill = ─
 bar-fill-font = 3
-bar-fill-foreground = #c9665e
 bar-empty = ─
 bar-empty-font = 3
-bar-empty-foreground = #44
 
 [module/consumation]
 type = custom/script
@@ -185,20 +178,18 @@ bar-used-empty-foreground = #444444
 [module/wireless-network]
 type = internal/network
 interface = wlan0
-interval = 1000
+interval = 2
 ping-interval = 30
 
 format-connected = <label-connected>
-label-connected = 󰤯 %local_ip%  %downspeed%  %upspeed%
-; label-connected = %local_ip%     %downspeed%   祝 %upspeed%
+label-connected = %local_ip%  %downspeed%  %upspeed%
 label-disconnected = 󰤮 not connected
-label-disconnected-foreground = #66
 
-ramp-signal-0 = signal_wifi_0_bar
-ramp-signal-1 = signal_wifi_1_bar
-ramp-signal-2 = signal_wifi_2_bar
-ramp-signal-3 = signal_wifi_3_bar
-ramp-signal-4 = wifi
+ramp-signal-0 = 󰤯
+ramp-signal-1 = 󰤟
+ramp-signal-2 = 󰤢
+ramp-signal-3 = 󰤥
+ramp-signal-4 = 󰤨
 
 animation-packetloss-0 = pakcetloss
 animation-packetloss-0-foreground = #ffa64c
@@ -257,11 +248,7 @@ pin-workspaces = true
 strip-wsnumbers = true
 index-sort = true
 
-; Use fuzzy (partial) matching on labels when assigning
-; icons to workspaces
-; Example: code;♚ will apply the icon to all workspaces
-; containing 'code' in the label
-; Default: false
+
 fuzzy-match = true
 
 ws-icon-0 = 1
@@ -342,4 +329,3 @@ exec = /home/user/.config/polybar/spotify.py
 
 format-underline = #1db954
 
-; vim:ft=dosini
