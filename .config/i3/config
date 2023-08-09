@@ -63,8 +63,8 @@ bindsym $mod+d exec --no-startup-id  rofi -combi-modi window#drun -show combi -m
 
 
 # Screen brightness controls
- bindsym XF86MonBrightnessUp exec "xbacklight -inc 2"
- bindsym XF86MonBrightnessDown exec "xbacklight -dec 2"
+ bindsym XF86MonBrightnessUp exec "brightnessctl s +10"
+ bindsym XF86MonBrightnessDown exec "brightnessctl s 10-"
 
 # Start Applications
 bindsym $mod+e exec nautilus
