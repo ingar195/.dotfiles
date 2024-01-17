@@ -7,11 +7,11 @@ exec autorandr --change
 exec numlockx on
 
 
-workspace 1 output DP-2
-workspace 2 output DP-2
+workspace 1 output DP-3
+workspace 2 output DP-3
 workspace 3 output eDP-1
-workspace 4 output DP-2
-workspace 5 output DP-3
+workspace 4 output DP-3
+workspace 5 output DP-2
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
@@ -63,8 +63,8 @@ bindsym $mod+d exec --no-startup-id  rofi -combi-modi window#drun -show combi -m
 
 
 # Screen brightness controls
- bindsym XF86MonBrightnessUp exec "brightnessctl s +10"
- bindsym XF86MonBrightnessDown exec "brightnessctl s 10-"
+ bindsym XF86MonBrightnessUp exec "brightnessctl s +5%"
+ bindsym XF86MonBrightnessDown exec "brightnessctl s 5%-"
 
 # Start Applications
 bindsym $mod+e exec nautilus
