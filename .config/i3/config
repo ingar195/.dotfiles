@@ -5,7 +5,7 @@
 #exec setxkbmap no
 exec autorandr --change
 exec numlockx on
-
+exec --no-startup-id picom
 
 workspace 1 output DP-3
 workspace 2 output DP-3
@@ -26,6 +26,8 @@ bindsym $mod+c exec code
 
 # Work
 bindsym $mod+Shift+o exec google-chrome-stable, exec slack
+
+bindsym $mod+s exec autorandr -c
 
 #bindsym $mod+Shift+m exec xkill
 
