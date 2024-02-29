@@ -6,8 +6,7 @@
 exec --no-startup-id autorandr --change
 exec --no-startup-id numlockx on
 exec --no-startup-id xfsettingsd
-exec --no-startup-id xsettingsd
-# exec --no-startup-id picom
+# exec --no-startup-id xsettingsd
 
 # Autostart applications
 exec --no-startup-id nm-applet
