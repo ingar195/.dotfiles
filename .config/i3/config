@@ -3,9 +3,18 @@
 
 # Hacks
 #exec setxkbmap no
-exec autorandr --change
-exec numlockx on
-exec --no-startup-id picom
+exec --no-startup-id autorandr --change
+exec --no-startup-id numlockx on
+exec --no-startup-id xfsettingsd
+exec --no-startup-id xsettingsd
+# exec --no-startup-id picom
+
+# Autostart applications
+exec --no-startup-id nm-applet
+exec --no-startup-id variety
+
+exec --no-startup-id xautolock -detectsleep  -time 5 -locker i3lock
+exec --no-startup-id xinput set-prop 16 'libinput Accel Speed' 0.5 
 
 workspace 1 output DP-3
 workspace 2 output DP-3
@@ -13,12 +22,23 @@ workspace 3 output eDP-1
 workspace 4 output DP-3
 workspace 5 output DP-2
 
+
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
+# Set hotkeys
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Variety
-exec variety
 bindsym $mod+Shift+n exec variety -n
 
 # Code
@@ -29,44 +49,19 @@ bindsym $mod+Shift+o exec google-chrome-stable, exec slack
 
 bindsym $mod+s exec autorandr -c
 
-#bindsym $mod+Shift+m exec xkill
-
-#Sound 
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
-new_float normal
-
-# Hide borders
-hide_edge_borders none
-
-# change borders
-bindsym $mod+u border none
-bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
-
-font xft:URWGothic-Book 11
-
-# Use Mouse+$mod to drag floating windows
-floating_modifier $mod
-
-# start a terminal
-bindsym $mod+Return exec alacritty
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id  rofi -combi-modi window#drun -show combi -modi combi -show-icons -theme "gruvbox-dark-hard" -font "mono 12"
 
+# start a terminal
+bindsym $mod+Return exec alacritty
 
 # Screen brightness controls
  bindsym XF86MonBrightnessUp exec "brightnessctl s +5%"
  bindsym XF86MonBrightnessDown exec "brightnessctl s 5%-"
+
 
 # Start Applications
 bindsym $mod+e exec nautilus
@@ -75,8 +70,21 @@ bindsym $mod+w exec google-chrome-stable
 bindsym $mod+F3 exec spotify --force-device-scale-factor=2
 
 bindsym --release Print exec scrot -s ~/Pictures/Screenshot/%F_%T.png -e 'xclip -selection clipboard -target image/png -i $f'
-#bindsym --release $mod+Shift+s exec scrot -s ~/Pictures/Screenshot/%F_%T.png -e 'xclip -selection clipboard -target image/png -i $f'
 bindsym $mod+Shift+s --release exec --no-startup-id flameshot gui
+
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+new_window pixel 1
+new_float normal
+
+# Hide borders
+hide_edge_borders none
+
+font xft:URWGothic-Book 11
+
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod
+
 
 # change focus
 bindsym $mod+Left focus left
@@ -120,9 +128,6 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
 # Workspace names
-# to display names or symbols instead of plain workspace numbers you can use
-# something like: set $ws1 1:mail
-#                 set $ws2 2:
 set $ws1 1
 set $ws2 2
 set $ws3 3
@@ -169,40 +174,10 @@ assign [class="discord"] $ws3
 assign [class="Slack"] $ws3
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
-for_window [title="i3_help"] floating enable sticky enable border normal
-for_window [class="Lightdm-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
-for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="Crow Translate"] floating enable border normal
-# for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
-for_window [title="Android Emulator*"] floating enable border normal
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -242,11 +217,7 @@ mode "resize" {
 }
 
 
-# Autostart applications
-exec --no-startup-id nm-applet
 
-exec --no-startup-id xautolock -detectsleep  -time 5 -locker i3lock
-exec --no-startup-id  xinput set-prop 16 'libinput Accel Speed' 0.5 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
 # https://i3wm.org/docs/userguide.html#xresources
@@ -342,7 +313,4 @@ mode "$mode_gaps_outer" {
 }
 
 
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+
