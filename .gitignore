@@ -1,9 +1,11 @@
+.*
 .dotfiles
 Desktop
 Documents
 Downloads
 Pictures
 workspace
+VirtualBox VMs
 .bash*
 .zh*
 .Xauthority
