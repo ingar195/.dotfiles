@@ -4,6 +4,6 @@ if [[ -f /sys/class/power_supply/BAT0/current_now ]] && [[ -f /sys/class/power_s
   watage_now=$(echo "$current_now * $voltage_now / 1000000000000" | bc)
   echo $watage_now W
 else
-  echo AC
+  echo 󱐥
 fi
 
