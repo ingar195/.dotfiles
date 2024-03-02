@@ -1,38 +1,7 @@
-.*
-!.*
-.dotfiles
-Desktop
-Documents
-Downloads
-Pictures
-workspace
-VirtualBox VMs
-.bash*
-.zh*
-.Xauthority
-.cache/
-.dmrc
-.fehbg
-.gitconfig
-.local/
-.oh-my-zsh/
-.pki/
-.redhat/
-.ssh/
-.vscode/
-.xsession-errors
-.xsession-errors.old
-.zcompdump-archlinux-5.9
-.zcompdump-archlinux-5.9.zwc
-.zsh_history
-.zshrc
-.gtkrc-2.0
-.icons/
-.profile
+*
 
-.config
-!.config
+!.gitignore
 
-!.config/xsettingsd/
+!.config/autorandr/
 !.config/polybar/
 !.config/i3/
