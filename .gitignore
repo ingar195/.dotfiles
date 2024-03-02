@@ -1,4 +1,5 @@
 .*
+!.*
 .dotfiles
 Desktop
 Documents
@@ -29,7 +30,9 @@ VirtualBox VMs
 .icons/
 .profile
 
-!.config
 .config
+!.config
 
 !.config/xsettingsd/
+!.config/polybar/
+!.config/i3/
