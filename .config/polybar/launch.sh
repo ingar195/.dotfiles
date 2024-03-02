@@ -14,7 +14,7 @@ if type "xrandr"; then
     MONITOR=$m NIC=$NIC polybar top & 
   done
 else
-  polybar top &
+  NIC=$NIC polybar top &
 fi
 
  
