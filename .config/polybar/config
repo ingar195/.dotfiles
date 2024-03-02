@@ -9,7 +9,7 @@ dpi = 100
 background = #1f1f1f
 foreground = #eee
 
-line-color = ${bar/bottom.background}
+
 line-size = 1
 
 padding-left = 0
@@ -27,11 +27,11 @@ font-2 = "Tamsyn:size=10;4"
 modules-left = i3
 modules-right = cpu memory temperature wireless-network backlight consumation battery date
 
-
+[module/tray]
 tray-position = right
 tray-scale = 1.0
 tray-background = ${self.background}
-tray-maxsize = 64 󰤟
+tray-maxsize = 64
 
 tray-offset-y = 0
 
@@ -49,7 +49,7 @@ format = <ramp> <label>
 
 card =  intel_backlight
 
-label = %percentage%% ; replace 
+label = %percentage%%
 ramp-0 = 
 ramp-1 = 󰪞
 ramp-2 = 󰪟
@@ -106,18 +106,18 @@ bar-capacity-empty = 󱃍
 bar-capacity-empty-font = 3
 bar-capacity-empty-foreground = #44ffffff
 
-animation-charging-0 = 
-animation-charging-1 = 󰢜
-animation-charging-2 = 󰂉
-animation-charging-3 = 󰂅
-animation-charging-framerate = 1000
-
+animation-charging-0 = 󰢟
+animation-charging-1 = 󰂇
+animation-charging-2 = 󰢝
+animation-charging-3 = 󰢞
+animation-charging-4 = 󰂅
+animation-charging-framerate = 800
 
 [module/cpu]
 type = internal/cpu
 interval = 0.3
-; format = <label> <ramp-coreload>
-format = <label> <bar-used>
+format = <label> <ramp-load>
+;format = <label> <bar-used>
 
 label = CPU
 bar-used-width = 15
@@ -130,33 +130,23 @@ bar-used-indicator-font = 6
 bar-used-indicator-foreground = #ff
 bar-used-fill = -
 bar-used-fill-font = 6
-bar-used-empty = -
+bar-used-empty = 
 bar-used-empty-font = 6
 bar-used-empty-foreground = #444444
-ramp-coreload-0 = _
-ramp-coreload-0-font = 2
-ramp-coreload-0-foreground = #aaff77
-ramp-coreload-1 = ▂
-ramp-coreload-1-font = 2
-ramp-coreload-1-foreground = #aaff77
-ramp-coreload-2 = ▃
-ramp-coreload-2-font = 2
-ramp-coreload-2-foreground = #aaff77
-ramp-coreload-3 = ▄
-ramp-coreload-3-font = 2
-ramp-coreload-3-foreground = #aaff77
-ramp-coreload-4 = ▅
-ramp-coreload-4-font = 2
-ramp-coreload-4-foreground = #fba922
-ramp-coreload-5 = ▆
-ramp-coreload-5-font = 2
-ramp-coreload-5-foreground = #fba922
-ramp-coreload-6 = ▇
-ramp-coreload-6-font = 2
-ramp-coreload-6-foreground = #ff5555
-ramp-coreload-7 = █
-ramp-coreload-7-font = 2
-ramp-coreload-7-foreground = #ff5555
+ramp-load-0 = 
+ramp-load-0-foreground = #aaff77
+ramp-load-1 = 
+ramp-load-1-foreground = #aaff77
+ramp-load-2 = 
+ramp-load-2-foreground = #aaff77
+ramp-load-3 = 
+ramp-load-3-foreground = #aaff77
+ramp-load-4 = 
+ramp-load-4-foreground = #fba922
+ramp-load-5 = 
+ramp-load-5-foreground = #ff5555
+ramp-load-6 = 
+ramp-load-6-foreground = #ff5555
 
 
 [module/date]
@@ -259,11 +249,11 @@ index-sort = true
 
 fuzzy-match = true
 
-ws-icon-0 = 1
-ws-icon-1 = 2
-ws-icon-2 = 3
-ws-icon-3 = 4
-ws-icon-4 = 5
+ws-icon-0 = 1;
+ws-icon-1 = 2;󰨞
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
 ws-icon-default = 
 
 label-dimmed-underline = ${root.background}
