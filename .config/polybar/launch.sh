@@ -10,7 +10,8 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 0.1; done
 # Launch bar1 and bar2
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar top &
+    NIC=$(ip -br a | grep -oP 'enp(\d\w\d)')
+    MONITOR=$m NIC=$NIC polybar top & 
   done
 else
   polybar top &
