@@ -26,7 +26,7 @@ modules-left = i3
 modules-right = cpu memory temperature wired-network wireless-network backlight volume consumation battery date 
 
 
-[module/tray]
+; [module/tray] this breaks the tray
 tray-position = right
 tray-scale = 1.0
 tray-background = ${self.background}
