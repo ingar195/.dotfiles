@@ -5,21 +5,24 @@
 #exec setxkbmap no
 exec --no-startup-id autorandr --change
 exec --no-startup-id numlockx on
-exec --no-startup-id xfsettingsd
+exec --no-startup-id ditf
 # exec --no-startup-id xsettingsd
 
 # Autostart applications
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 exec --no-startup-id nm-applet
 exec --no-startup-id variety
+exec --no-startup-id xidlehook --detect-sleep  --not-when-fullscreen --timer 1 'i3lock --color 111111' 0 
 
-exec --no-startup-id xautolock -detectsleep  -time 5 -locker i3lock
+# exec --no-startup-id xidlehook -detectsleep -time 5 -locker i3lock
 exec --no-startup-id xinput set-prop 16 'libinput Accel Speed' 0.5 
 
-workspace 1 output DP-3
-workspace 2 output DP-3
+workspace 1 output DP-2
+workspace 2 output DP-2
 workspace 3 output eDP-1
-workspace 4 output DP-3
-workspace 5 output DP-2
+workspace 4 output DP-2
+workspace 5 output DP-3
 
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
@@ -97,13 +100,12 @@ bindsym $mod+Shift+Right move right
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
 bindsym $mod+b workspace back_and_forth
-#bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+Shift+Tab workspace back_and_forth
+bindsym Mod1+Tab workspace back_and_forth
 
 # split orientation
 bindsym $mod+h split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
-bindsym $mod+q split toggle
+bindsym $mod+q split toggle 
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -245,8 +247,7 @@ set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id $HOME/.config/i3/scripts/fixsound.sh
+
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
   client.focused          #556064 #556064 #80FFF9 #FDF6E3
