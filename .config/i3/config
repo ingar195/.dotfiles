@@ -13,7 +13,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id nm-applet
 exec --no-startup-id variety
-exec --no-startup-id xidlehook --detect-sleep  --not-when-fullscreen --timer 1 'i3lock --color 111111' 0 
+exec --no-startup-id xidlehook --detect-sleep  --not-when-fullscreen --timer 120 'i3lock --color 111111' 0 
 
 # exec --no-startup-id xidlehook -detectsleep -time 5 -locker i3lock
 exec --no-startup-id xinput set-prop 16 'libinput Accel Speed' 0.5 
