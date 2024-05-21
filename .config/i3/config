@@ -182,7 +182,7 @@ bindsym $mod+Shift+r restart
 
 # Set shut down, restart and locking features
 
-bindsym $mod+l exec --no-startup-id i3lock
+bindsym $mod+l exec --no-startup-id i3lock --color 111111
 bindsym $mod+Shift+a mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
