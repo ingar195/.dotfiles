@@ -18,11 +18,11 @@ exec --no-startup-id xidlehook --detect-sleep --not-when-audio --not-when-fullsc
 # exec --no-startup-id xidlehook -detectsleep -time 5 -locker i3lock
 exec --no-startup-id xinput set-prop 16 'libinput Accel Speed' 0.5 
 
-workspace 1 output DP-2
-workspace 2 output DP-2
+workspace 1 output DP-3
+workspace 2 output DP-3
 workspace 3 output eDP-1
-workspace 4 output DP-2
-workspace 5 output DP-3
+workspace 4 output DP-3
+workspace 5 output DP-2
 
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
