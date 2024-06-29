@@ -1,7 +1,9 @@
-*
+/*
 !.gitconfig
 !.gitignore
 
-!.config/autorandr/*
-!.config/polybar/
-!.config/i3/
+!.config
+.config/*
+!.config/autorandr
+!.config/polybar
+!.config/i3
