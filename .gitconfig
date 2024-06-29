@@ -1,0 +1,8 @@
+[user]
+	email = ingar@megarden.no
+	name = Ingar
+[init]
+	defaultBranch = main
+
+[includeIf "gitdir:~/workspace/work/"]
+    path = ~/workspace/work/.gitconfig
