@@ -5,6 +5,5 @@
 !.config
 .config/*
 !.config/autorandr
-!.config/autorandr/*
 !.config/polybar
 !.config/i3
