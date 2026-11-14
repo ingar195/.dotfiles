@@ -5,7 +5,10 @@
 #exec setxkbmap no
 exec --no-startup-id autorandr --change
 exec --no-startup-id numlockx on
-exec --no-startup-id ditf
+# TODO: "ditf" is not a valid command on Debian (or anywhere else apt knows
+# about) -- looks like a typo left over from the Arch setup. Commented out
+# until it's clear what this was meant to run.
+# exec --no-startup-id ditf
 # exec --no-startup-id xsettingsd
 
 # Autostart applications
@@ -13,11 +16,17 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id nm-applet
 exec --no-startup-id variety
-exec --no-startup-id xidlehook --detect-sleep --not-when-audio  --timer 120 'i3lock --color 111111' 0 
 
-# 
-# exec --no-startup-id xidlehook -detectsleep -time 5 -locker i3lock
-exec --no-startup-id xinput set-prop 16 'libinput Accel Speed' 0.5 
+# Idle-lock + suspend-lock (all in Debian apt; xautolock was dropped in Debian 13):
+#  - xss-lock hooks systemd-logind, so it locks before sleep/suspend, and also
+#    runs the locker when the X screensaver timer fires.
+#  - xset s 120 makes the screensaver fire after 2 min idle (-> i3lock),
+#    and DPMS turns the screen off 2 min after that.
+exec --no-startup-id xss-lock -- i3lock --color 111111
+exec --no-startup-id xset s 120 120
+exec --no-startup-id xset dpms 0 0 240
+
+exec --no-startup-id xinput set-prop 16 'libinput Accel Speed' 0.5
 
 workspace 1 output DP-3
 workspace 2 output DP-3

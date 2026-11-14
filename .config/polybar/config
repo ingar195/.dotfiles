@@ -23,7 +23,7 @@ font-1 = "Symbols Nerd Font:size=15"
 font-2 = "Tamsyn:size=10;4"
 
 modules-left = i3
-modules-right = cpu memory temperature wired-network wireless-network backlight volume consumation battery date 
+modules-right = spotify cpu memory temperature wired-network wireless-network backlight volume consumation battery date
 
 
 ; [module/tray] this breaks the tray
@@ -232,7 +232,7 @@ type = custom/script
 interval = 5
 format-prefix = ""
 format = <label>
-exec = /home/user/.config/polybar/spotify.py
+exec = $HOME/.config/polybar/spotify.py
 
 format-underline = #1db954
 
