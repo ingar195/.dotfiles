@@ -1,3 +1,4 @@
+#!/bin/bash
 if [[ -f /sys/class/power_supply/BAT0/current_now ]] && [[ -f /sys/class/power_supply/BAT0/voltage_now ]]; then
   current_now=$(cat /sys/class/power_supply/BAT0/current_now)
   voltage_now=$(cat /sys/class/power_supply/BAT0/voltage_now)

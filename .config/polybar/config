@@ -168,7 +168,6 @@ label-disconnected = 󰅛
 
 [module/wireless-network]
 type = internal/network
-interface = wlan0
 interface-type = wireless
 interval = 2
 ping-interval = 3
