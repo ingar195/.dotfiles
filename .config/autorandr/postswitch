@@ -1,0 +1,5 @@
+#!/bin/sh
+# Run by autorandr after every layout change, and by i3 on start: redraw bars and wallpaper
+"$HOME/.config/polybar/launch.sh" > /dev/null 2>&1
+[ -x "$HOME/.fehbg" ] && "$HOME/.fehbg"
+exit 0

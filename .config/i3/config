@@ -3,7 +3,6 @@
 
 # Hacks
 #exec setxkbmap no
-exec --no-startup-id autorandr --change
 exec --no-startup-id numlockx on
 # TODO: "ditf" is not a valid command on Debian (or anywhere else apt knows
 # about) -- looks like a typo left over from the Arch setup. Commented out
@@ -12,7 +11,8 @@ exec --no-startup-id numlockx on
 # exec --no-startup-id xsettingsd
 
 # Autostart applications
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# autorandr first, so the bars start after the screens have their final size
+exec_always --no-startup-id "autorandr --change; $HOME/.config/autorandr/postswitch"
 
 exec --no-startup-id nm-applet
 exec --no-startup-id variety
