@@ -8,4 +8,5 @@
 !.config/i3
 !.config/flameshot
 !.config/alacritty
-
+!.config/gtk-3.0
+!.config/gtk-4.0
